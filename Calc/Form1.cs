@@ -53,7 +53,7 @@ namespace Calc
             {
                 GetResult();
             }
-            
+
             if (txtOut.Text == "" || txtOut.Text == ".")
             {
                 MessageBox.Show("please make sure you enter a number before an operation");
@@ -65,34 +65,40 @@ namespace Calc
                 calcPress = true;
                 txtOut.Text = "";
             }
-            
         }
 
         private void GetResult()
         {
-            if (calcPress)
+            try
             {
-                switch (symbol)
+                if (calcPress)
                 {
-                    case "+":
-                        txtOut.Text = (result + double.Parse(txtOut.Text)).ToString();
-                        break;
+                    switch (symbol)
+                    {
+                        case "+":
+                            txtOut.Text = (result + double.Parse(txtOut.Text)).ToString();
+                            break;
 
-                    case "-":
-                        txtOut.Text = (result - double.Parse(txtOut.Text)).ToString();
-                        break;
+                        case "-":
+                            txtOut.Text = (result - double.Parse(txtOut.Text)).ToString();
+                            break;
 
-                    case "*":
-                        txtOut.Text = (result * double.Parse(txtOut.Text)).ToString();
-                        break;
+                        case "*":
+                            txtOut.Text = (result * double.Parse(txtOut.Text)).ToString();
+                            break;
 
-                    case "/":
-                        txtOut.Text = (result / double.Parse(txtOut.Text)).ToString();
-                        break;
-                    default:
-                        break;
+                        case "/":
+                            txtOut.Text = (result / double.Parse(txtOut.Text)).ToString();
+                            break;
+                        default:
+                            break;
+                    }
+
                 }
-                
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
             }
         }
 
