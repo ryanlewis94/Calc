@@ -6,16 +6,24 @@
         xmlns:local="clr-namespace:WpfCalc"
         mc:Ignorable="d"
         Title="WPF Calculator"
-        Height="550"
+        Height="600"
         Width="600"
-        MinHeight="550"
+        MinHeight="600"
         MinWidth="600">
     <Border Padding="25">
         <StackPanel>
-            <TextBox IsReadOnly="True"
-                     Margin="5"
+            <TextBox x:Name="TxtOut"
+                     Text="0"
+                     Visibility="Hidden"
+                     FontSize="1">
+            </TextBox>
+            <TextBox x:Name="TxtResult"
+                     Text="0"
+                     IsReadOnly="True"
+                     Margin="5, 5, 5, 25"
                      FontSize="24"
-                     FontWeight="Bold"></TextBox>
+                     FontWeight="Bold">
+            </TextBox>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -40,7 +48,8 @@
                         Padding="20"
                         Margin="5"
                         FontSize="24"
-                        FontWeight="Bold"></Button>
+                        FontWeight="Bold">
+                </Button>
 
                 <Button x:Name="Btn1"
                         Click="NumPress"
@@ -152,6 +161,7 @@
                         FontWeight="Bold"></Button>
 
                 <Button x:Name="BtnMultiply"
+                        Click="CalcPress"
                         Content="*"
                         Grid.Column="4"
                         Grid.Row="1"
@@ -160,6 +170,7 @@
                         FontSize="24"
                         FontWeight="Bold"></Button>
                 <Button x:Name="BtnDiv"
+                        Click="CalcPress"
                         Content="/"
                         Grid.Column="4"
                         Grid.Row="2"
@@ -168,6 +179,7 @@
                         FontSize="24"
                         FontWeight="Bold"></Button>
                 <Button x:Name="BtnAdd"
+                        Click="CalcPress"
                         Content="+"
                         Grid.Column="4"
                         Grid.Row="3"
@@ -176,6 +188,7 @@
                         FontSize="24"
                         FontWeight="Bold"></Button>
                 <Button x:Name="BtnMinus"
+                        Click="CalcPress"
                         Content="-"
                         Grid.Column="4"
                         Grid.Row="4"
